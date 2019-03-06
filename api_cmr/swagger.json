@@ -1,0 +1,78 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "api_cmr",
+    "version" : "1.0.0",
+    "description" : "api_cmr"
+  },
+  "paths" : {
+    "/compare" : {
+      "post" : {
+        "operationId" : "postCompare",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/CMR_FinalData"
+            }
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a compare",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/CMR_Data"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/api_cmr/v1",
+  "definitions" : {
+    "CMR_FinalData" : {
+      "type" : "object",
+      "properties" : {
+        "cmr_number" : {
+          "type" : "string"
+        },
+        "cmr_name" : {
+          "type" : "string"
+        },
+        "address_type1" : {
+          "type" : "string"
+        },
+        "city1" : {
+          "type" : "string"
+        },
+        "address_type2" : {
+          "type" : "string"
+        },
+        "city2" : {
+          "type" : "string"
+        }
+      }
+    },
+    "CMR_Data" : {
+      "type" : "object",
+      "properties" : {
+        "cmr_number" : {
+          "type" : "string"
+        },
+        "cmr_name" : {
+          "type" : "string"
+        },
+        "address_type" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
